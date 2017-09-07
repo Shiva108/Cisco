@@ -1,0 +1,74 @@
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname GAD
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 172.16.0.1 255.255.0.0
+ duplex auto
+ speed auto
+ no no shutdown
+!
+interface FastEthernet1/0
+ no ip address
+ duplex auto
+ speed auto
+ no no shutdown
+!
+interface Serial2/0
+ ip address 172.17.0.1 255.255.0.0
+ clock rate 56000
+!
+interface Serial3/0
+ no ip address
+ no shutdown
+!
+interface FastEthernet4/0
+ no ip address
+ no shutdown
+!
+interface FastEthernet5/0
+ no ip address
+ no shutdown
+!
+router rip
+ network 172.16.0.0
+ network 172.17.0.0
+!
+ip classless
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
